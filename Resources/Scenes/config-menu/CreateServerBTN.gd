@@ -1,5 +1,7 @@
 extends Button
 
+onready var KikinHostBuddy = get_node_or_null("/root/KikinHostBuddy")
+
 var server_request = false
 
 func _on_CreateServerBTN_pressed():

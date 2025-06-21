@@ -1,5 +1,7 @@
 extends Control
 
+onready var KikinHostBuddy = get_node_or_null("/root/KikinHostBuddy")
+
 func _process(delta):
 	$Background/ServerName.text = "Server Name: " + str(KikinHostBuddy.server_name)
 	$Background/ServerSize.text = "Server Size: " + str(KikinHostBuddy.server_size)

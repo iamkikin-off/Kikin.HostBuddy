@@ -10,7 +10,7 @@ const SERVER_CONFIG_PATH = "user://hostbuddy_server_config.json"
 const PLUGIN_DIR := "user://HB_Plugins"
 
 # Just the info for this mod
-const VERSION = "v1.0"
+const VERSION = "v1.1"
 const PREFIX = "[HostBuddy/" + VERSION + "] "
 
 # Player API duh
@@ -152,6 +152,17 @@ func _ready() -> void:
 	get_tree().connect("node_added", self, "_add_HostBuddy_mods")
 
 func _add_HostBuddy_mods(node: Node) -> void:
+	if node.name == "world":
+		if Network.GAME_MASTER:
+			load_user_plugins()
+			load_server_config()
+		else:
+			# Clear plugins again.
+			plugin_list.clear()
+			
+			# Remove all child nodes.
+			for child in get_children():
+				child.queue_free()
 	if node.name == "main_menu":
 		var config_button: Node = HostBuddy_Menu.instance()
 		config_button.visible = false
@@ -170,7 +181,7 @@ func _add_HostBuddy_mods(node: Node) -> void:
 		else:
 			menu_list.margin_top -= 25
 			menu_list.margin_bottom += 25
-	if node.name == "esc_menu":
+	if node.name == "esc_menu" and Network.GAME_MASTER:
 		var config_button: Node = HostBuddy_Reload.instance()
 		config_button.visible = false
 

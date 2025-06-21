@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Menus/Main Menu/ui_generic_button.gd" type="Script" id=1]
 [ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/OpenConfig.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Assets/Themes/main.tres" type="Theme" id=5]
 [ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/CreateServer.gd" type="Script" id=6]
 [ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/ReloadConfig.gd" type="Script" id=7]
-[ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/ReloadPlayerPlugins.gd" type="Script" id=8]
 
 [node name="HostBuddy-Menu" type="Control"]
 anchor_right = 1.0
@@ -90,36 +89,28 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CreateServer" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
-margin_right = 290.0
+margin_right = 347.211
 margin_bottom = 119.0
-rect_min_size = Vector2( 250, 0 )
+rect_min_size = Vector2( 347.211, 0 )
 text = "Create server from Config."
 icon_align = 1
 script = ExtResource( 6 )
 
 [node name="OpenConfig" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
-margin_left = 294.0
-margin_right = 544.0
+margin_left = 351.0
+margin_right = 698.211
 margin_bottom = 119.0
-rect_min_size = Vector2( 250, 0 )
+rect_min_size = Vector2( 347.211, 0 )
 text = "Open Config+Plugin Dir."
 script = ExtResource( 2 )
 
 [node name="ReloadConfig" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
-margin_left = 548.0
-margin_right = 798.0
+margin_left = 702.0
+margin_right = 1049.21
 margin_bottom = 119.0
-rect_min_size = Vector2( 250, 0 )
+rect_min_size = Vector2( 347.211, 0 )
 text = "Reload Config."
 script = ExtResource( 7 )
-
-[node name="ReloadPlayerPlugins" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
-margin_left = 802.0
-margin_right = 1052.0
-margin_bottom = 119.0
-rect_min_size = Vector2( 250, 0 )
-text = "Reload Plugins."
-script = ExtResource( 8 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/ScrollContainer"]
 
@@ -178,4 +169,3 @@ autowrap = true
 [connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/CreateServer" to="Background/ScrollContainer/HBoxContainer/CreateServer" method="_on_CreateServer_pressed"]
 [connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/OpenConfig" to="Background/ScrollContainer/HBoxContainer/OpenConfig" method="_on_OpenConfig_pressed"]
 [connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/ReloadConfig" to="Background/ScrollContainer/HBoxContainer/ReloadConfig" method="_on_ReloadConfig_pressed"]
-[connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/ReloadPlayerPlugins" to="Background/ScrollContainer/HBoxContainer/ReloadPlayerPlugins" method="_on_ReloadPlayerPlugins_pressed"]

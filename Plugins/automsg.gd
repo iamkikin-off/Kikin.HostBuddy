@@ -1,5 +1,7 @@
 extends Node
 
+onready var KikinHostBuddy = get_node_or_null("/root/KikinHostBuddy")
+
 var PlayerAPI
 var time = 0
 
