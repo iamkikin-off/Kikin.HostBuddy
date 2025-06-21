@@ -57,3 +57,4 @@ For ex. do you want a greeting message when someone joins your server? Well you 
 There are a lot more plugins for **HostBuddy**, so if you want more... join our [Discord](https://discord.gg/vmnXWtU35K)!
 
 # Custom Plugins
+Custom Plugin guide coming soon.
