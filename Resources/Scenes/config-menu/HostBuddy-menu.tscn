@@ -1,0 +1,181 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Menus/Main Menu/ui_generic_button.gd" type="Script" id=1]
+[ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/OpenConfig.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/UI/knot_sep2.png" type="Texture" id=3]
+[ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/config-menu.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Themes/main.tres" type="Theme" id=5]
+[ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/CreateServer.gd" type="Script" id=6]
+[ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/ReloadConfig.gd" type="Script" id=7]
+[ext_resource path="res://mods/Kikin.HostBuddy/Resources/Scenes/config-menu/ReloadPlayerPlugins.gd" type="Script" id=8]
+
+[node name="HostBuddy-Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -298, 99 )
+theme = ExtResource( 5 )
+script = ExtResource( 4 )
+
+[node name="Fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0823529, 0.12549, 0.203922, 0.376471 )
+
+[node name="Background" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -513.0
+margin_top = -336.0
+margin_right = 595.0
+margin_bottom = 316.0
+
+[node name="Title" type="Label" parent="Background"]
+anchor_left = 0.0641949
+anchor_top = 0.0171779
+anchor_right = 0.893617
+anchor_bottom = 0.0693252
+margin_left = 29.872
+margin_top = -0.200001
+margin_right = 29.8719
+margin_bottom = -0.200001
+text = "HostBuddy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Rope" type="TextureRect" parent="Background"]
+anchor_left = 0.0909091
+anchor_top = 0.0648489
+anchor_right = 0.920063
+anchor_bottom = 0.11425
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CloseBTN" type="Button" parent="Background"]
+anchor_left = 0.942447
+anchor_top = -0.0262346
+anchor_right = 1.01497
+anchor_bottom = 0.0257654
+margin_left = -0.000366211
+margin_top = 2.09808e-05
+margin_right = -0.323853
+margin_bottom = 6.30402
+text = "X"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+margin_left = 28.0
+margin_top = 92.0
+margin_right = 1091.0
+margin_bottom = 211.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/ScrollContainer"]
+margin_right = 1063.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CreateServer" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
+margin_right = 290.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 250, 0 )
+text = "Create server from Config."
+icon_align = 1
+script = ExtResource( 6 )
+
+[node name="OpenConfig" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
+margin_left = 294.0
+margin_right = 544.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 250, 0 )
+text = "Open Config+Plugin Dir."
+script = ExtResource( 2 )
+
+[node name="ReloadConfig" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
+margin_left = 548.0
+margin_right = 798.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 250, 0 )
+text = "Reload Config."
+script = ExtResource( 7 )
+
+[node name="ReloadPlayerPlugins" type="Button" parent="Background/ScrollContainer/HBoxContainer"]
+margin_left = 802.0
+margin_right = 1052.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 250, 0 )
+text = "Reload Plugins."
+script = ExtResource( 8 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/ScrollContainer"]
+
+[node name="ServerName" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 252.0
+margin_right = 1094.0
+margin_bottom = 296.0
+text = "Server Name: NAME"
+
+[node name="ServerSize" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 276.0
+margin_right = 1094.0
+margin_bottom = 320.0
+text = "Server Size: 12"
+
+[node name="ServerType" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 300.0
+margin_right = 1094.0
+margin_bottom = 344.0
+text = "Server Type: 0"
+
+[node name="ServerRequest" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 324.0
+margin_right = 1094.0
+margin_bottom = 368.0
+text = "Server Request: false"
+
+[node name="ServerTags" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 348.0
+margin_right = 1094.0
+margin_bottom = 392.0
+text = "Server Tags: TAGS"
+
+[node name="ServerPlugins" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 404.0
+margin_right = 1094.0
+margin_bottom = 484.0
+text = "Plugins: PLUGINS"
+autowrap = true
+
+[node name="ServerPluginSettings" type="Label" parent="Background"]
+margin_left = 16.0
+margin_top = 492.0
+margin_right = 1094.0
+margin_bottom = 621.0
+text = "Plugins Settings: SETTINGS"
+autowrap = true
+
+[connection signal="pressed" from="Background/CloseBTN" to="." method="_on_CloseBTN_pressed"]
+[connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/CreateServer" to="Background/ScrollContainer/HBoxContainer/CreateServer" method="_on_CreateServer_pressed"]
+[connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/OpenConfig" to="Background/ScrollContainer/HBoxContainer/OpenConfig" method="_on_OpenConfig_pressed"]
+[connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/ReloadConfig" to="Background/ScrollContainer/HBoxContainer/ReloadConfig" method="_on_ReloadConfig_pressed"]
+[connection signal="pressed" from="Background/ScrollContainer/HBoxContainer/ReloadPlayerPlugins" to="Background/ScrollContainer/HBoxContainer/ReloadPlayerPlugins" method="_on_ReloadPlayerPlugins_pressed"]
