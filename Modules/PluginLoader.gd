@@ -3,6 +3,9 @@ extends Node
 # ---------------------------------------------
 const DEFAULT_SOURCE = "https://raw.githubusercontent.com/iamkikin-off/hostbuddy-plugin-source/refs/heads/main/default_plugins.json" # The default source for HostBuddy Plugin Loader.
 
+onready var KikinHostBuddy = get_node_or_null("/root/KikinHostBuddy")
+onready var HostBuddyPlugin = preload("res://mods/Kikin.HostBuddy/Resources/Scripts/HostBuddyPlugin.gd")
+
 var http_request : HTTPRequest
 var all_plugins = {} # Contains the plugin name & the plugin code.
 var loaded_plugins = {} # Contains the plugin name (for downloading) & the plugin code (in a HostBuddyPlugin node)
@@ -31,7 +34,7 @@ func _on_request_completed_source(result, response_code, headers, body):
 # ---------------------------------------------
 func _on_request_completed_plugin(result, response_code, headers, body):
 	
-	var newPlugin : HostBuddyPlugin = HostBuddyPlugin.new()
+	var newPlugin = HostBuddyPlugin.new()
 	newPlugin.plugin_code = body.get_string_from_utf8()
 	newPlugin.plugin_name = all_plugins.keys()[current_plugin_index]
 	
